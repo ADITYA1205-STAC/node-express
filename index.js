@@ -35,8 +35,8 @@ const middlewareFunction = (req, res, next) => {
     }
 }
 app.post('/api/course', middlewareFunction, (req,res)=>{
-    // const {error} = validateCourse(req.body);
-    // if(error) return  res.status(400).send(err.details[0].message);
+    const {error} = validateCourse(req.body);
+    if(error) return  res.status(400).send(err.details[0].message);
     console.log('URL ENCODED :: ', req.body);
     const course = {
         id: courses.length +1,
